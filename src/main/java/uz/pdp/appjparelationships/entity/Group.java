@@ -10,16 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-@Table (uniqueConstraints = @UniqueConstraint(columnNames = {"name","faculty_id"}))
-public class Guruh {
+@Entity(name = "groups")
+public class Group {
 
 
     @Id

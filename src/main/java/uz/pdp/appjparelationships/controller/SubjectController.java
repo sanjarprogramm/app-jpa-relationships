@@ -22,7 +22,7 @@ public class SubjectController {
     @Autowired
     SubjectRepository subjectRepository;
 
-    //Create
+    //Create ---> jadvalga yangi fan qo'shish
 
     @PostMapping
     public String add(@RequestBody Subject subject) {
@@ -34,7 +34,7 @@ public class SubjectController {
 
         return "Fan qo'shildi";
     }
-          // Read
+          // Read ----> Jadvaldan fanlar ro'yhatini olish
     @GetMapping
     public List<Subject> subjectList() {
         List<Subject> listSubject = subjectRepository.findAll();
@@ -42,20 +42,22 @@ public class SubjectController {
         return listSubject;
     }
 
-    //Update
+    //Update  -----> jadvaldagi fanlarga o'zgartirish kiritish
     @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
     public String updateSubject (@PathVariable Integer id , @RequestBody Subject subject){
         Optional<Subject> optionalSubject = subjectRepository.findById(id);
         if (optionalSubject.isPresent()){
-            Subject updateSub = optionalSubject.get();
-            updateSub.setName(subject.getName());
-            subjectRepository.save(updateSub);
+            Subject newSubject = optionalSubject.get();
+            newSubject.setName(subject.getName());
+            subjectRepository.save(newSubject);
             return "Jadvaldagi fan taxrirlandi";
         }
 
 
         return "bunday fan jadvalda yo'q";
     }
+    //DELETE ---------> JADVALDAGI FANLAR ORASIDAN ID BERILGAN FANNI O'CHIRISH
+
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     public String deleteSub (@PathVariable Integer id){
         Optional<Subject> byId = subjectRepository.findById(id);

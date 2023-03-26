@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name","university_id"}))
 public class Faculty {
 
 

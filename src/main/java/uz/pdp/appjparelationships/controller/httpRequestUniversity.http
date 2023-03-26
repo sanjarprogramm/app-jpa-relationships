@@ -5,3 +5,31 @@
 # * 'gtrp' and 'gtr' create a GET request with or without query parameters;
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+###
+POST http://localhost:8080/university/create
+Content-Type: application/json
+
+{
+  "name": "Albuxoriy",
+  "city": "Buxoro",
+  "district": "Yakkasaroy",
+  "street": "Muqumiy40"
+}
+
+###
+GET http://localhost:8080/university
+
+###
+PUT http://localhost:8080/university/update/1
+Content-Type: application/json
+
+{
+  "name": "NamPolitexnika",
+  "city": "Namangan",
+  "district": "Do'stlik",
+  "street": "Do'stlik12"
+
+
+  }
+
+###
